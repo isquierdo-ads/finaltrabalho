@@ -1,13 +1,16 @@
 import { BaseEntity } from 'src/modules/bases/entities/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Task } from 'src/modules/tasks/entities/task.entity';
+import { Column, Entity, OneToOne } from 'typeorm';
 
 @Entity()
-export class Collaborator extends BaseEntity{
- 
+export class Collaborator extends BaseEntity {
+
   @Column()
   name: string;
 
   @Column()
   cpf: string;
 
+  @OneToOne(() => Task)
+  task: Task
 }
